@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="210dp"
+        android:layout_height="51dp"
+        android:paddingStart="40dp"
+        android:paddingTop="10dp"
+        android:text="@string/all_sessions"
+        android:textColor="@color/pink"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints,RtlSymmetry"
+        app:drawableBottomCompat="@color/black" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="283dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="136dp"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="283dp"
+                android:layout_height="41dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="Economics | Date | Location" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="283dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="196dp"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="283dp"
+                android:layout_height="41dp"
+                android:padding="10dp"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="Computer Sc | Date | Location" />
+        </RelativeLayout>/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="283dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="256dp"
+        tools:ignore="MissingConstraints" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="283dp"
+                android:layout_height="41dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="Maths | Date | Location" />
+        </RelativeLayout>/>
+    </androidx.cardview.widget.CardView>
+
+    <SearchView
+        android:layout_width="170dp"
+        android:layout_height="24dp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="86dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="53dp"
+        android:layout_height="41dp"
+        android:text="@string/join"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="136dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="53dp"
+        android:layout_height="41dp"
+        android:text="@string/join"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="196dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="53dp"
+        android:layout_height="41dp"
+        android:text="@string/join"
+        android:textSize="13sp"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="256dp"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
