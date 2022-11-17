@@ -1,14 +1,18 @@
-package com.example.studybuddy;
+package com.example.studybuddy.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TableLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.example.studybuddy.R;
+import com.example.studybuddy.database.SQLiteHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+
+import java.io.File;
 
 public class LoginActivity extends AppCompatActivity {
     TabLayout tabLayout;
@@ -16,11 +20,17 @@ public class LoginActivity extends AppCompatActivity {
     FloatingActionButton fb, google, twitter;
     float v = 0;
 
+    LottieAnimationView lottieAnimationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        lottieAnimationView = findViewById(R.id.animation);
+        lottieAnimationView.animate().setDuration(1000);
+
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
