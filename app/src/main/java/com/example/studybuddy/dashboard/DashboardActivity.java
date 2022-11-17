@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.studybuddy.R;
+import com.example.studybuddy.SearchActivity2;
 import com.example.studybuddy.timer.TimerActivity;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -73,6 +74,14 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        cardAllSessions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), SearchActivity2.class);
+                // Sending Email to Dashboard Activity using intent.
+                startActivity(intent);
+            }
+        });
 
 
         //https://www.youtube.com/watch?v=x7jkLrgeJTY
