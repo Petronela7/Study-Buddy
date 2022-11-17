@@ -1,0 +1,79 @@
+package com.example.studybuddy.database;
+
+/**
+ * Created by Petronela Halip
+ */
+
+import android.content.Context;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.studybuddy.login.LoginFragment;
+
+public class SQLiteHelper extends SQLiteOpenHelper {
+
+    public static String DATABASE_NAME="StudyBuddyDB.db";
+
+    public static final String USER_TABLE_NAME="User";
+    public static final String User_ID="ID_User";
+    public static final String User_Name="Name";
+    public static final String User_Email="Email";
+    public static final String User_Password="Password";
+    public static final String User_Mobile="Mobile";
+
+    public static final String SESSION_TABLE_NAME="Session";
+    public static final String Session_ID="ID_Session";
+    public static final String Session_Name="Name";
+    public static final String Session_Subject="Subject";
+    public static final String Session_Year="Year_Of_Study";
+    public static final String Session_Date_Start="Date_Start";
+    public static final String Session_Date_End="Date_End";
+    public static final String Session_Location="Location";
+
+    public static final String USER_SESSION_TABLE_NAME="User_Session";
+
+    String query;
+
+
+    public SQLiteHelper(Context context) {
+
+
+        super(context, DATABASE_NAME, null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase database) {
+
+        String CREATE_TABLE_USER="CREATE TABLE IF NOT EXISTS "+USER_TABLE_NAME+
+                " ("+User_ID+" INTEGER PRIMARY KEY, "+User_Name+" VARCHAR, "+User_Email+" VARCHAR, "+User_Mobile+" VARCHAR, "
+                +User_Password+" VARCHAR)";
+        database.execSQL(CREATE_TABLE_USER);
+
+        String CREATE_TABLE_SESSION="CREATE TABLE IF NOT EXISTS "+SESSION_TABLE_NAME+
+                " ("+Session_ID+" INTEGER PRIMARY KEY, "+Session_Name+" VARCHAR, "+Session_Subject+" VARCHAR," +
+                ""+Session_Year+" INT, "+Session_Date_Start+" DATETIME, "+Session_Date_End+" DATETIME, "+Session_Location+" VARCHAR)";
+        database.execSQL(CREATE_TABLE_SESSION);
+
+        String CREATE_TABLE_USER_SESSION="CREATE TABLE IF NOT EXISTS " +USER_SESSION_TABLE_NAME + " ("
+                + User_ID+" INTEGER, "
+                + Session_ID + " INTEGER, "
+                + "FOREIGN KEY ( " +User_ID + ") REFERENCES " + USER_TABLE_NAME + "( " + User_ID +"), "
+                + "FOREIGN KEY ( " +Session_ID+ ") REFERENCES " + SESSION_TABLE_NAME+ "( " + Session_ID +"), "
+                + "CONSTRAINT PK_UserSes PRIMARY KEY (" +User_ID + ", "+Session_ID + "))";
+
+        database.execSQL(CREATE_TABLE_USER_SESSION);
+
+
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS "+USER_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+SESSION_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+USER_SESSION_TABLE_NAME);
+        onCreate(db);
+
+    }
+
+}

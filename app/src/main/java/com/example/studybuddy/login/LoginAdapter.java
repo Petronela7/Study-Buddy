@@ -1,4 +1,4 @@
-package com.example.studybuddy;
+package com.example.studybuddy.login;
 
 import android.content.Context;
 
