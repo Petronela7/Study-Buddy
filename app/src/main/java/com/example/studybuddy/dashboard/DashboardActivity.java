@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.studybuddy.R;
 import com.example.studybuddy.SearchActivity2;
+import com.example.studybuddy.createSession.CreateSession;
 import com.example.studybuddy.timer.TimerActivity;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -78,6 +79,14 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), SearchActivity2.class);
+                // Sending Email to Dashboard Activity using intent.
+                startActivity(intent);
+            }
+        });
+        cardCreateSession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), CreateSession.class);
                 // Sending Email to Dashboard Activity using intent.
                 startActivity(intent);
             }

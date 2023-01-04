@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +21,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyBuddy"
         tools:targetApi="31">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+        android:value="@string/map_key"/>
+        <activity
+            android:name=".createSession.MapActivity"
+            android:exported="true">
+
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".createSession.CreateSession"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".SearchActivity2"
             android:exported="false">
@@ -35,7 +58,6 @@
             android:name=".timer.TimerActivity"
             android:exported="true"
             android:label="Pomodoro Clock">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -55,6 +77,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

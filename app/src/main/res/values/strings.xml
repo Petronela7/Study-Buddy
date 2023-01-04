@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Study Buddy</string>
+    <string name="map_key">AIzaSyBbpxxA3WhTPkf7Lszkq8LpkFSHRUCNG3c</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
