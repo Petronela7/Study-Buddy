@@ -24,4 +24,12 @@
     <string name="join">Join</string>
     <string name="all_sessions">ALL SESSIONS</string>
     <string name="search">Search</string>
+    <string name="choose_location">Choose location</string>
+    <string-array name="feelings">
+        <item>Sad</item>
+        <item>Dissatisfied</item>
+        <item>Satisfied</item>
+        <item>Happy</item>
+        <item>Excited</item>
+    </string-array>
 </resources>

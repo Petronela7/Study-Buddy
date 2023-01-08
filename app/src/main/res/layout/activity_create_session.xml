@@ -22,184 +22,113 @@
         android:inputType="text"
         android:paddingStart="20sp"
         android:text="Create Study Session"
-        android:textColor="@color/blue"
+        android:textColor="@color/pink"
         android:textSize="25sp"
         android:textStyle="bold" />
 
-    <com.google.android.material.card.MaterialCardView
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeColor="@color/blue"
-        android:layout_margin="8dp">
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter subject">
 
-        <LinearLayout
+        <!--this is the actual edit text which takes the input-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/subjectText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="61dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="Subject"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-
-                <EditText
-                    android:layout_width="174dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_bg"
-                    android:hint="Group Name"
-
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-
-
-    <com.google.android.material.card.MaterialCardView
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cardGroupName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeColor="@color/blue"
-        android:layout_margin="8dp">
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Enter group name">
 
-        <LinearLayout
+        <!--this is the actual edit text which takes the input-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/groupText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="Group Name"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                  />
-
-                <EditText
-                    android:layout_width="174dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_bg"
-                    android:hint="Group Name"
-
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/level"
+        <!--this is the actual edit text which takes the input-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeColor="@color/blue"
-        android:layout_margin="8dp">
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Year of study"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardGroupName">
 
-        <LinearLayout
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="none"
+            tools:text="I" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
-
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="Level"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    />
-
-                <EditText
-                    android:layout_width="174dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_bg"
-                    android:hint="Level"
-
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/location"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/date_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeColor="@color/blue"
-        android:layout_margin="8dp">
+        android:hint="Date displayed here"
+        android:textSize="20sp"
+        android:padding="6dp"
+        android:textAlignment="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    </com.google.android.material.textview.MaterialTextView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/date_picker_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="32dp"
+        android:text="Pick a date" >
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:id="@+id/locationTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="50dp"
-                    android:text="Open map"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/time_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Time displayed here"
+        android:textSize="20sp"
+        android:padding="6dp"
+        android:textAlignment="center">
 
-                <Button
-                    android:id="@+id/button_for_map"
-                    android:layout_width="174dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Search Location"
-                    />
+    </com.google.android.material.textview.MaterialTextView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/time_picker_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="32dp"
+        android:text="Pick a time" >
 
-            </LinearLayout>
+    </com.google.android.material.button.MaterialButton>
 
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
     <!-- Buttons -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginLeft="110dp"
+        android:paddingTop="100dp"
         android:orientation="horizontal">
 
         <Button

@@ -89,6 +89,8 @@ public class SignupFragment extends Fragment {
                 SQLiteTableBuild();
                 // Checking EditText is empty or Not.
                 CheckEditTextStatus();
+                //Method to check whether ot=r not the email is a valid stud.ubbcluj.ro mail
+                //checkingUbbClujMail();
                 // Method to check Email is already exists or not.
                 CheckingEmailAlreadyExistsOrNot();
                 // Empty EditText After done inserting process.
@@ -157,6 +159,15 @@ public class SignupFragment extends Fragment {
         else {
             EditTextEmptyHolder = true ;
         }
+    }
+    public void checkingUbbClujMail(){
+        EmailHolder = email.getText().toString().trim();
+        // onClick of button perform this simplest code.
+        if (!EmailHolder.matches("[a-zA-Z0-9._-]+@stud\\.ubbcluj\\.ro"))
+        {
+            Toast.makeText(getContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+        }
+
     }
     // Checking Email is already exists or not.
     public void CheckingEmailAlreadyExistsOrNot(){

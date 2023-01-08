@@ -15,6 +15,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.example.studybuddy.R;
 import com.example.studybuddy.SearchActivity2;
 import com.example.studybuddy.createSession.CreateSession;
+import com.example.studybuddy.createSession.MapActivity;
 import com.example.studybuddy.timer.TimerActivity;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -86,7 +87,7 @@ public class DashboardActivity extends AppCompatActivity {
         cardCreateSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), CreateSession.class);
+                Intent intent = new Intent(getBaseContext(), MapActivity.class);
                 // Sending Email to Dashboard Activity using intent.
                 startActivity(intent);
             }

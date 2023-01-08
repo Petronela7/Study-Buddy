@@ -23,12 +23,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public static final String SESSION_TABLE_NAME="Session";
     public static final String Session_ID="ID_Session";
-    public static final String Session_Name="Name";
-    public static final String Session_Subject="Subject";
-    public static final String Session_Year="Year_Of_Study";
-    public static final String Session_Date_Start="Date_Start";
-    public static final String Session_Date_End="Date_End";
-    public static final String Session_Location="Location";
+    public static final String Session_Name=       "Name";
+    public static final String Session_Subject=    "Subject";
+    public static final String Session_Year=       "Year_Of_Study";
+    public static final String Session_Date_Start= "Date_Start";
+    public static final String Session_Time_Start= "Time_Start";
+    public static final String Session_Location=   "Location";
 
     public static final String USER_SESSION_TABLE_NAME="User_Session";
 
@@ -51,7 +51,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         String CREATE_TABLE_SESSION="CREATE TABLE IF NOT EXISTS "+SESSION_TABLE_NAME+
                 " ("+Session_ID+" INTEGER PRIMARY KEY, "+Session_Name+" VARCHAR, "+Session_Subject+" VARCHAR," +
-                ""+Session_Year+" INT, "+Session_Date_Start+" DATETIME, "+Session_Date_End+" DATETIME, "+Session_Location+" VARCHAR)";
+                ""+Session_Year+" INT, "+Session_Date_Start+" VARCHAR, "+Session_Time_Start+" VARCHAR, "+Session_Location+" VARCHAR)";
         database.execSQL(CREATE_TABLE_SESSION);
 
         String CREATE_TABLE_USER_SESSION="CREATE TABLE IF NOT EXISTS " +USER_SESSION_TABLE_NAME + " ("
