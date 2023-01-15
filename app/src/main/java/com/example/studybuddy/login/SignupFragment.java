@@ -33,6 +33,7 @@ import com.example.studybuddy.R;
 import com.example.studybuddy.dashboard.DashboardActivity;
 import com.example.studybuddy.database.SQLiteHelper;
 import com.example.studybuddy.login.LoginActivity;
+import com.example.studybuddy.model.User;
 
 import java.io.File;
 
@@ -40,7 +41,7 @@ public class SignupFragment extends Fragment {
     EditText email, password, mobile, confirm_password;
     Button signup;
     float v = 0;
-    public static final String UserEmail = "";
+    public static final String UserEmail = "KEY_EMAIL";
 
     String  EmailHolder, PasswordHolder, ConfirmPassHolder, Mobile;
     Boolean EditTextEmptyHolder;
@@ -49,6 +50,8 @@ public class SignupFragment extends Fragment {
     SQLiteHelper sqLiteHelper;
     Cursor cursor;
     String F_Result = "Not_Found";
+
+    public static User user = new User();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -120,6 +123,8 @@ public class SignupFragment extends Fragment {
         // If editText is not empty then this block will executed.
         if(EditTextEmptyHolder == true)
         {
+            user.setUserEmail(email.getText().toString());
+            user.setUserPassword(password.getText().toString());
             // SQLite query to insert data into table.
             SQLiteDataBaseQueryHolder = "INSERT INTO "+ USER_TABLE_NAME+" (email,mobile,password) VALUES('"+EmailHolder+"', '"+Mobile+"', '"+PasswordHolder+"');";
             // Executing query.
@@ -130,7 +135,7 @@ public class SignupFragment extends Fragment {
             Toast.makeText(getContext(),"User Registered Successfully", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(getContext(), DashboardActivity.class);
             // Sending Email to Dashboard Activity using intent.
-            intent.putExtra(UserEmail, EmailHolder);
+            intent.putExtra(UserEmail, user);
             startActivity(intent);
         }
         // This block will execute if any of the registration EditText is empty.

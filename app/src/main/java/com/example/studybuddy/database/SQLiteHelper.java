@@ -139,8 +139,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public Cursor selectMyUserSessions(int userId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String select = "SELECT * FROM " + USER_SESSION_TABLE_NAME + " WHERE " + User_ID + "=? AND " + Session_ID + ">?";
-        Cursor data = db.rawQuery(select, new String[]{String.valueOf(userId),"0"});
+        String select = "SELECT * FROM " + USER_SESSION_TABLE_NAME + " WHERE " + User_ID + "=?";
+        Cursor data = db.rawQuery(select, new String[]{String.valueOf(userId)});
         return data;
     }
 
