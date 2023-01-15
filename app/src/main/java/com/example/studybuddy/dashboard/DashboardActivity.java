@@ -66,9 +66,10 @@ public class DashboardActivity extends AppCompatActivity implements Serializable
 
         cardMySessions.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                showToast("These are your sessions");
+            public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), MySessions.class);
+                // Sending Email to Dashboard Activity using intent.
+                intent.putExtra("KEY_USER",user);
                 startActivity(intent);
             }
         });

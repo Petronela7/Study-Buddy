@@ -125,9 +125,24 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor selectAllUserSessions() {
+    public Session findSessionNameById(int sessionId){
+        String query = "SELECT * FROM " + SESSION_TABLE_NAME + " WHERE " + Session_ID + "=?";
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + USER_SESSION_TABLE_NAME, null);
+        Cursor data = db.rawQuery(query, new String[]{String.valueOf(sessionId)});
+
+        Session session = null;
+        if (data.getCount() == 1) {
+            if(data.moveToNext()) {
+                session = new Session(Integer.parseInt(data.getString(0)),data.getString(1),data.getString(2),data.getString(3),
+                        data.getString(4),data.getString(5),data.getString(6));
+            }
+        }
+        return session;
+    }
+
+    public Cursor selectAllUserSessions(int userId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + USER_SESSION_TABLE_NAME + " WHERE " + User_ID + " =? ", new String[]{String.valueOf(userId)});
         return data;
     }
 }
