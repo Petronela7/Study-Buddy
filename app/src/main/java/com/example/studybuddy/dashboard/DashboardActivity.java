@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -35,7 +36,7 @@ public class DashboardActivity extends AppCompatActivity implements Serializable
 
     CardView cardPomodoro;
 
-    CardView cardLogout;
+    CardView cardFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class DashboardActivity extends AppCompatActivity implements Serializable
 
         cardPomodoro = findViewById(R.id.pomodoro);
 
-        cardLogout = findViewById(R.id.logout);
+        cardFeedback = findViewById(R.id.logout);
 
 
 
@@ -97,6 +98,15 @@ public class DashboardActivity extends AppCompatActivity implements Serializable
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), MapActivity.class);
                 // Sending Email to Dashboard Activity using intent.
+                startActivity(intent);
+            }
+        });
+
+        cardFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSdbySmthnglrKAd87kt_rOUSEKDtYHY9bJpThtKIY9fOPyr7Q/viewform?usp=share_link");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });

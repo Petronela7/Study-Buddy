@@ -43,8 +43,8 @@ public class MySessions extends AppCompatActivity implements Serializable {
 
 //        Cursor data;
         if(userId!=-1){
-            Cursor data = myDB.selectMyUserSessions(userId);
-//            Cursor data = myDB.selectUS();
+        //    Cursor data = myDB.selectMyUserSessions(userId);
+           Cursor data = myDB.selectUS();
             if(data.getCount() == 0) {
                 Toast.makeText(MySessions.this,"You don't have sessions in the database!",Toast.LENGTH_LONG).show();
             } else {
