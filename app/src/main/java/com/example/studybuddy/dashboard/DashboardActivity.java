@@ -13,12 +13,15 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.studybuddy.R;
-import com.example.studybuddy.SearchActivity2;
-import com.example.studybuddy.createSession.CreateSession;
+import com.example.studybuddy.allSessions.AllSessionsActivity;
 import com.example.studybuddy.createSession.MapActivity;
+import com.example.studybuddy.model.User;
+import com.example.studybuddy.mySessions.MySessions;
 import com.example.studybuddy.timer.TimerActivity;
 
-public class DashboardActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class DashboardActivity extends AppCompatActivity implements Serializable {
 
     LottieAnimationView lottieAnimationView;
     TextView hello, email;
@@ -44,7 +47,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         hello = findViewById(R.id.textHello);
         email = findViewById(R.id.textEmail);
-        email.setText(getIntent().getStringExtra(UserEmail));
+        User user = (User) getIntent().getSerializableExtra("KEY_EMAIL");
+        email.setText(user.getUserEmail());
 
         cardMySessions = findViewById(R.id.my_session);
 
@@ -63,7 +67,9 @@ public class DashboardActivity extends AppCompatActivity {
         cardMySessions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("These are your sessions");
+//                showToast("These are your sessions");
+                Intent intent = new Intent(getBaseContext(), MySessions.class);
+                startActivity(intent);
             }
         });
 
@@ -79,8 +85,9 @@ public class DashboardActivity extends AppCompatActivity {
         cardAllSessions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), SearchActivity2.class);
+                Intent intent = new Intent(getBaseContext(), AllSessionsActivity.class);
                 // Sending Email to Dashboard Activity using intent.
+                intent.putExtra("KEY_USER",user);
                 startActivity(intent);
             }
         });

@@ -22,10 +22,13 @@ import com.example.studybuddy.MainActivity;
 import com.example.studybuddy.R;
 import com.example.studybuddy.dashboard.DashboardActivity;
 import com.example.studybuddy.database.SQLiteHelper;
+import com.example.studybuddy.model.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class LoginFragment extends Fragment {
+import java.io.Serializable;
+
+public class LoginFragment extends Fragment implements Serializable {
     EditText email, password;
     TextView forgetPass;
     Button login;
@@ -37,7 +40,9 @@ public class LoginFragment extends Fragment {
     SQLiteHelper sqLiteHelper;
     Cursor cursor;
     String TempPassword = "NOT_FOUND" ;
-    public static final String UserEmail = "";
+    public static final String UserEmail = "KEY_EMAIL";
+
+    public static User user = new User();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -109,6 +114,9 @@ public class LoginFragment extends Fragment {
         // Getting value from All EditText and storing into String Variables.
         EmailHolder = email.getText().toString();
         PasswordHolder = password.getText().toString();
+
+        user.setUserEmail(email.getText().toString());
+        user.setUserPassword(password.getText().toString());
         // Checking EditText is empty or no using TextUtils.
         if( TextUtils.isEmpty(EmailHolder) || TextUtils.isEmpty(PasswordHolder)){
             EditTextEmptyHolder = false ;
@@ -125,7 +133,7 @@ public class LoginFragment extends Fragment {
             // Going to Dashboard activity after login success message.
             Intent intent = new Intent(getContext(), DashboardActivity.class);
             // Sending Email to Dashboard Activity using intent.
-            intent.putExtra(UserEmail, EmailHolder);
+            intent.putExtra(UserEmail, user);
             startActivity(intent);
         }
         else {

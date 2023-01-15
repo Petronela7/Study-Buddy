@@ -4,11 +4,21 @@ package com.example.studybuddy.database;
  * Created by Petronela Halip
  */
 
+import static java.security.AccessController.getContext;
+
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.Toast;
 
+import com.example.studybuddy.allSessions.SessionDetails;
 import com.example.studybuddy.login.LoginFragment;
+import com.example.studybuddy.model.Session;
+
+import java.io.File;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
 
@@ -63,7 +73,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         database.execSQL(CREATE_TABLE_USER_SESSION);
 
-
+        String insertUserSession = "INSERT INTO " + USER_SESSION_TABLE_NAME + " (" + User_ID + "," + Session_ID + ") VALUES (2,1);";
+        database.execSQL(insertUserSession);
 
     }
 
@@ -76,4 +87,47 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor selectAllSessions() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + SESSION_TABLE_NAME, null);
+        return data;
+    }
+
+
+    public boolean joinSession(int sessionId, int userId) {
+        String checkExists = "SELECT * FROM " + USER_SESSION_TABLE_NAME + " WHERE " + User_ID + "=? AND " + Session_ID + "=?";
+        String insertUserSession = "INSERT INTO " + USER_SESSION_TABLE_NAME + " (" + User_ID + "," + Session_ID + ") VALUES (" + userId +
+                "," + sessionId + ");";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery(checkExists, new String[]{String.valueOf(userId),String.valueOf(sessionId)});
+
+        if (data.getCount() == 0) {
+            db.execSQL(insertUserSession);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int findUserIdByEmail(String email) {
+        String query = "SELECT * FROM " + USER_TABLE_NAME + " WHERE " + User_Email + "=?";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery(query, new String[]{email});
+        int id = -1;
+
+        if (data.getCount() == 1) {
+            if(data.moveToNext()) {
+                id = Integer.parseInt(data.getString(0));
+            }
+        }
+        return id;
+
+    }
+
+    public Cursor selectAllUserSessions() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor data = db.rawQuery("SELECT * FROM " + USER_SESSION_TABLE_NAME, null);
+        return data;
+    }
 }

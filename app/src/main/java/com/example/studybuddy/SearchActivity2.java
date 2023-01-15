@@ -18,7 +18,7 @@ public class SearchActivity2 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search2);
 
         lv = (ListView) findViewById(R.id.listView1);
         sv = (SearchView) findViewById(R.id.searchView1);

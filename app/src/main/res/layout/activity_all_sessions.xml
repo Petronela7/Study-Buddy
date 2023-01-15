@@ -6,130 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".allSessions.AllSessionsActivity">
 
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textView5"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="210dp"
-        android:layout_height="51dp"
-        android:paddingStart="40dp"
-        android:paddingTop="10dp"
-        android:text="@string/all_sessions"
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="100dp"
+        android:text="ALL SESSIONS"
+        android:textAlignment="center"
         android:textColor="@color/pink"
-        android:textSize="20sp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        app:drawableBottomCompat="@color/black"
-        tools:ignore="MissingConstraints,RtlSymmetry"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="81dp"
+        tools:ignore="MissingConstraints" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="283dp"
-        android:layout_height="41dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="136dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="283dp"
-                android:layout_height="41dp"
-                android:padding="10dp"
-                android:text="Economics | Date | Location"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="283dp"
-        android:layout_height="41dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="196dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="283dp"
-                android:layout_height="41dp"
-                android:padding="10dp"
-                android:text="Computer Sc | Date | Location"
-                android:textAlignment="center"
-                android:textSize="19sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="283dp"
-        android:layout_height="41dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="256dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="283dp"
-                android:layout_height="41dp"
-                android:padding="10dp"
-                android:text="Maths | Date | Location"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-        />
-    </androidx.cardview.widget.CardView>
-
-    <SearchView
-        android:layout_width="170dp"
-        android:layout_height="24dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="86dp" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="53dp"
-        android:layout_height="41dp"
-        android:text="@string/join"
-        android:textSize="13sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="136dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="53dp"
-        android:layout_height="41dp"
-        android:text="@string/join"
-        android:textSize="13sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="196dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="53dp"
-        android:layout_height="41dp"
-        android:text="@string/join"
-        android:textSize="13sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="328dp"
-        tools:layout_editor_absoluteY="256dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

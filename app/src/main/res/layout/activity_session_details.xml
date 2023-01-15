@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".allSessions.SessionDetails">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <Button
+        android:id="@+id/btnJoin"
+        android:layout_width="140dp"
+        android:layout_height="73dp"
+        android:text="JOIN"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="207dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:gravity="center"
+        android:textColor="@color/pink"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewSubject"
+        android:layout_width="379dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewYear"
+        android:layout_width="375dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSubject"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="381dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewYear"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="381dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewLocation"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="381dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:text="TextView"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@color/pink"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewDate"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
