@@ -18,6 +18,7 @@ import com.example.studybuddy.allSessions.AllSessionsActivity;
 import com.example.studybuddy.createSession.MapActivity;
 import com.example.studybuddy.model.User;
 import com.example.studybuddy.mySessions.MySessions;
+import com.example.studybuddy.statistics.Statistics;
 import com.example.studybuddy.timer.TimerActivity;
 
 import java.io.Serializable;
@@ -97,6 +98,15 @@ public class DashboardActivity extends AppCompatActivity implements Serializable
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), MapActivity.class);
+                // Sending Email to Dashboard Activity using intent.
+                startActivity(intent);
+            }
+        });
+
+        cardStatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Statistics.class);
                 // Sending Email to Dashboard Activity using intent.
                 startActivity(intent);
             }
