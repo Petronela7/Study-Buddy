@@ -26,46 +26,46 @@ import java.util.List;
 public class MySessions extends AppCompatActivity implements Serializable {
     SQLiteHelper myDB;
     List<Session> mySessionList = new ArrayList<>();
-    Cursor data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_sessions);
+        setContentView(R.layout.activity_my_sessions);
 
         User user = (User) getIntent().getSerializableExtra("KEY_USER");
 
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView1);
         myDB = new SQLiteHelper(this);
 
         ArrayList<String> theList = new ArrayList<>();
         int userId = myDB.findUserIdByEmail(user.getUserEmail());
 
+//        Cursor data;
         if(userId!=-1){
-            data = myDB.selectAllUserSessions(userId);
-        }
+            Cursor data = myDB.selectAllUserSessions(userId);
+//            if(data.getCount() == 0) {
+//                Toast.makeText(MySessions.this,"You don't have sessions in the database!",Toast.LENGTH_LONG).show();
+//            } else {
+                while(data.moveToNext()) {
+                    Session session = myDB.findSessionById(Integer.parseInt(data.getString(1)));
+                    theList.add(session.getSessionName());
+                    mySessionList.add(session);
+                    ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, theList);
+                    listView.setAdapter(listAdapter);
+                }
+//            }
 
-        if(data.getCount() == 0) {
-            Toast.makeText(MySessions.this,"You don't have sessions in the database!",Toast.LENGTH_LONG).show();
-        } else {
-            while(data.moveToNext()) {
-                Session session = myDB.findSessionNameById(Integer.parseInt(data.getString(1)));
-                theList.add(session.getSessionName());
-                mySessionList.add(session);
-                ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, theList);
-                listView.setAdapter(listAdapter);
-            }
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Intent intent = new Intent(MySessions.this, MySessionsDetails.class);
+                    intent.putExtra("KEY_NAME", mySessionList.get(i));
+                    intent.putExtra("KEY_USER", user);
+                    startActivity(intent);
+                }
+            });
         }
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(MySessions.this, MySessionsDetails.class);
-                intent.putExtra("KEY_NAME", mySessionList.get(i));
-                intent.putExtra("KEY_USER", user);
-                startActivity(intent);
-            }
-        });
 
     }
 }

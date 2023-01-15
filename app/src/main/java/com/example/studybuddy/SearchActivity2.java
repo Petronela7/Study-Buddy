@@ -20,8 +20,8 @@ public class SearchActivity2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search2);
 
-        lv = (ListView) findViewById(R.id.listView1);
-        sv = (SearchView) findViewById(R.id.searchView1);
+        lv = (ListView) findViewById(R.id.listView2);
+        sv = (SearchView) findViewById(R.id.searchView);
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
         lv.setAdapter(adapter);

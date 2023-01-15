@@ -16,7 +16,9 @@ import com.example.studybuddy.database.SQLiteHelper;
 import com.example.studybuddy.model.Session;
 import com.example.studybuddy.model.User;
 
-public class MySessionsDetails extends AppCompatActivity {
+import java.io.Serializable;
+
+public class MySessionsDetails extends AppCompatActivity implements Serializable {
     SQLiteHelper myDB;
     String userEmail;
 
