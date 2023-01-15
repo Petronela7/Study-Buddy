@@ -73,9 +73,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         database.execSQL(CREATE_TABLE_USER_SESSION);
 
-        String insertUserSession = "INSERT INTO " + USER_SESSION_TABLE_NAME + " (" + User_ID + "," + Session_ID + ") VALUES (2,1);";
-        database.execSQL(insertUserSession);
-
     }
 
     @Override
@@ -140,10 +137,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return session;
     }
 
-    public Cursor selectAllUserSessions(int userId) {
+    public Cursor selectMyUserSessions(int userId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String select = "SELECT * FROM " + USER_SESSION_TABLE_NAME + " WHERE " + User_ID + " =? ";
-        Cursor data = db.rawQuery(select, new String[]{String.valueOf(userId)});
+        String select = "SELECT * FROM " + USER_SESSION_TABLE_NAME + " WHERE " + User_ID + "=? AND " + Session_ID + ">?";
+        Cursor data = db.rawQuery(select, new String[]{String.valueOf(userId),"0"});
+        return data;
+    }
+
+    public Cursor selectUS() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String select = "SELECT * FROM " + USER_SESSION_TABLE_NAME;
+        Cursor data = db.rawQuery(select, null);
         return data;
     }
 }

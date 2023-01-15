@@ -43,18 +43,19 @@ public class MySessions extends AppCompatActivity implements Serializable {
 
 //        Cursor data;
         if(userId!=-1){
-            Cursor data = myDB.selectAllUserSessions(userId);
-//            if(data.getCount() == 0) {
-//                Toast.makeText(MySessions.this,"You don't have sessions in the database!",Toast.LENGTH_LONG).show();
-//            } else {
+            Cursor data = myDB.selectMyUserSessions(userId);
+//            Cursor data = myDB.selectUS();
+            if(data.getCount() == 0) {
+                Toast.makeText(MySessions.this,"You don't have sessions in the database!",Toast.LENGTH_LONG).show();
+            } else {
                 while(data.moveToNext()) {
-                    Session session = myDB.findSessionById(Integer.parseInt(data.getString(1)));
+                    Session session = myDB.findSessionById(Integer.parseInt(data.getString(0)));
                     theList.add(session.getSessionName());
                     mySessionList.add(session);
                     ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, theList);
                     listView.setAdapter(listAdapter);
                 }
-//            }
+            }
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
