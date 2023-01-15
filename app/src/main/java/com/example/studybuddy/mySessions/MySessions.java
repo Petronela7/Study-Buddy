@@ -41,10 +41,8 @@ public class MySessions extends AppCompatActivity implements Serializable {
         ArrayList<String> theList = new ArrayList<>();
         int userId = myDB.findUserIdByEmail(user.getUserEmail());
 
-//        Cursor data;
         if(userId!=-1){
-        //    Cursor data = myDB.selectMyUserSessions(userId);
-           Cursor data = myDB.selectUS();
+            Cursor data = myDB.selectMyUserSessions(userId);
             if(data.getCount() == 0) {
                 Toast.makeText(MySessions.this,"You don't have sessions in the database!",Toast.LENGTH_LONG).show();
             } else {
