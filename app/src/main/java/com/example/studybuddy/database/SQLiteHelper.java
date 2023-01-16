@@ -54,6 +54,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 ""+Session_Year+" INT, "+Session_Date_Start+" VARCHAR, "+Session_Time_Start+" VARCHAR, "+Session_Location+" VARCHAR)";
         database.execSQL(CREATE_TABLE_SESSION);
 
+
         String CREATE_TABLE_USER_SESSION="CREATE TABLE IF NOT EXISTS " +USER_SESSION_TABLE_NAME + " ("
                 + User_ID+" INTEGER, "
                 + Session_ID + " INTEGER, "
@@ -61,6 +62,14 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 + "FOREIGN KEY ( " +Session_ID+ ") REFERENCES " + SESSION_TABLE_NAME+ "( " + Session_ID +"), "
                 + "CONSTRAINT PK_UserSes PRIMARY KEY (" +User_ID + ", "+Session_ID + "))";
 
+        database.execSQL(CREATE_TABLE_USER_SESSION);
+
+        String INSERT_USER_SESSION="INSERT INTO " +USER_SESSION_TABLE_NAME + " VALUES ("
+                + User_ID+" INTEGER, "
+                + Session_ID + " INTEGER, "
+                + "FOREIGN KEY ( " +User_ID + ") REFERENCES " + USER_TABLE_NAME + "( " + User_ID +"), "
+                + "FOREIGN KEY ( " +Session_ID+ ") REFERENCES " + SESSION_TABLE_NAME+ "( " + Session_ID +"), "
+                + "CONSTRAINT PK_UserSes PRIMARY KEY (" +User_ID + ", "+Session_ID + "))";
         database.execSQL(CREATE_TABLE_USER_SESSION);
 
 
